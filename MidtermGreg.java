@@ -78,7 +78,7 @@ public class MidtermGreg{
 if (intcount == 15){
 		scene15(con);
 		con.println("you eat 1000 bananas in "+dbltime+" minitues or "+1000/dbltime+" bananas per minute");
-		con.println("monkey is full and falls asleep, the end");
+		con.println("monkey is full and falls asleep, the end.");
 		
 }
 
