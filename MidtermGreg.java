@@ -15,6 +15,9 @@ public class MidtermGreg{
 	int intrandom;
 	int intuser;
 	double dbltime = 0;
+	double dblangle;
+	double dblvelocity;
+	double dbluserdist;
 		
 	
 		
@@ -60,6 +63,25 @@ public class MidtermGreg{
 			intcount = 4;
 		}
 	}
+	if (intcount == 4){
+		scene4(con);
+		con.println("What angle is the banana peel thrown?");
+		dblangle = con.readDouble(); 
+		dblangle = (dblangle * 3.14) / 180;
+		con.println("What velocity is the banana peel thrown?");
+		dblvelocity = con.readDouble();
+		dbluserdist = ((dblvelocity * dblvelocity) * Math.sin(2*dblangle))/9.81;
+		if (dbluserdist > 8 && dbluserdist <12){
+			intcount = 7;
+		}
+		else if (dbluserdist <= 8){
+			intcount = 6;
+		}
+		else {
+			intcount = 8;
+		}
+	
+	}
 	
 	while (intcount == 5){
 		scene5(con);
@@ -70,6 +92,13 @@ public class MidtermGreg{
 		intcount = 14;
 	}
 }
+	if (intcount == 6){
+		scene6(con);
+	}
+	if (intcount == 7){
+		scene7(con);
+	}
+
 	if (intcount == 14){
 		scene14(con);
 		dbltime = con.readDouble();
@@ -141,9 +170,11 @@ if (intcount == 15){
 	}
 	public static void scene4(Console con){
 			
-		BufferedImage imgscene3 = con.loadImage("scene3.png");
-		con.drawImage(imgscene3,0,0);
-		con.println("Enter left or right, left is forest, right is rock.");
+		BufferedImage imgscene4 = con.loadImage("scene4.png");
+		con.drawImage(imgscene4,0,0);
+		con.println("Monkey wants to throw banana peel at bird.");
+		con.println("If bird is on the same height and 10 meters away.");
+		con.println("Use the range formula");
 		con.repaint();
 	}
 
@@ -154,6 +185,70 @@ if (intcount == 15){
 		con.println("Gambling monkeys, 1/6 chance to get 1000 bananas, input a number from 1 to 6.");
 		con.repaint();
 	}
+	public static void scene6(Console con){
+		con.clear();
+		BufferedImage imgscene6 = con.loadImage("scene6.png");
+		BufferedImage imgbanana = con.loadImage("banana1.png");
+		con.drawImage(imgscene6,0,0);
+		int intbanana;
+		int intcount;
+		for (intbanana=500; intbanana < 700; intbanana++){
+			con.drawImage(imgscene6,0,0);
+			con.drawImage(imgbanana,intbanana,700 - intbanana);
+			con.repaint();
+			con.sleep(5);
+	}
+		for (intbanana = 700; intbanana < 900 ; intbanana++){
+			con.drawImage(imgscene6,0,0);
+			con.drawImage(imgbanana,intbanana,intbanana - 700);
+			con.repaint();
+			con.sleep(5);
+		}
+		con.println("Monkey undershot, monkey sad, monkey sleeps, the end.");
+		
+		con.repaint();
+	}
+	
+	public static void scene7(Console con){
+		con.clear();
+		int intbanana;
+		int intcount;
+		int intcount1;
+		BufferedImage imgbanana = con.loadImage("banana.png");
+		BufferedImage imgmonkeytime = con.loadImage("monkeytime.png");
+		BufferedImage imgscene7 = con.loadImage("scene4.png");
+		BufferedImage imgscene71 = con.loadImage("scene7,1.png");
+		con.drawImage(imgscene7,0,0);
+		for (intbanana=500; intbanana < 700; intbanana++){
+			con.drawImage(imgscene7,0,0);
+			con.drawImage(imgbanana,intbanana,700 - intbanana);
+			con.repaint();
+			con.sleep(5);
+	}
+		for (intbanana = 700; intbanana < 900 ; intbanana++){
+			con.drawImage(imgscene7,0,0);
+			con.drawImage(imgbanana,intbanana,intbanana - 700);
+			con.repaint();
+			con.sleep(5);
+		}
+		for (intcount1 = 0; intcount1 < 50; intcount1++){
+		for (intcount =0; intcount < 10; intcount++){
+			con.drawImage(imgscene71,0,0);
+			con.drawImage(imgmonkeytime,0,intcount);
+			con.repaint();
+			con.sleep(5);
+		}
+		for (intcount =0; intcount < 10; intcount++){
+			con.drawImage(imgscene71,0,0);
+			con.drawImage(imgmonkeytime,0,10 - intcount);
+			con.repaint();
+			con.sleep(5);
+		}
+		
+	}
+	con.clear();
+	con.println("the end, monkey is king");
+}
 		public static void scene14(Console con){
 		con.clear();
 		BufferedImage imgscene14 = con.loadImage("scene14.png");
