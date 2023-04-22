@@ -14,11 +14,12 @@ public class MidtermGreg{
 	String strrun;
 	int intrandom;
 	int intuser;
+	char charcurrent;
 	double dbltime = 0;
 	double dblangle;
 	double dblvelocity;
 	double dbluserdist;
-		
+	int intcounter1=0;
 	
 		
 	
@@ -63,6 +64,7 @@ public class MidtermGreg{
 			intcount = 4;
 		}
 	}
+	con.clear();
 	if (intcount == 4){
 		scene4(con);
 		con.println("What angle is the banana peel thrown?");
@@ -82,7 +84,7 @@ public class MidtermGreg{
 		}
 	
 	}
-	
+	con.clear();
 	while (intcount == 5){
 		scene5(con);
 	intrandom = (int)( Math.random()*6+1);
@@ -95,8 +97,32 @@ public class MidtermGreg{
 	if (intcount == 6){
 		scene6(con);
 	}
+	
 	if (intcount == 7){
 		scene7(con);
+	
+	if (intcount == 8){
+		
+		scene8(con);
+		while (intcount == 8){
+		intcounter1=1;
+	}
+		charcurrent = con.currentChar();
+		if (charcurrent == ('a')){
+			intcount = 9;
+		}
+		if (charcurrent == ('d')){
+			intcount = 10;
+		}
+	}
+}
+	con.clear();
+	if (intcount == 9){
+		scene9(con);
+	}
+	
+	if (intcount == 10){
+		scene10(con);
 	}
 
 	if (intcount == 14){
@@ -107,7 +133,7 @@ public class MidtermGreg{
 if (intcount == 15){
 		scene15(con);
 		con.println("you eat 1000 bananas in "+dbltime+" minitues or "+1000/dbltime+" bananas per minute");
-		con.println("monkey is full and falls asleep, the end.");
+		con.println("monkey is full and falls asleep, The End.");
 		
 }
 
@@ -249,6 +275,35 @@ if (intcount == 15){
 	con.clear();
 	con.println("the end, monkey is king");
 }
+	
+public static void scene8(Console con){
+		
+		BufferedImage imgscene8 = con.loadImage("scene8.png");
+		con.drawImage(imgscene8,0,0);
+		con.println("Banana was overshot, bird is angry");
+		con.println("Press 'a' key to run to a clear landscape, 'd' to a cave");
+		con.repaint();
+	}
+	
+	public static void scene9(Console con){
+		
+		BufferedImage imgscene9 = con.loadImage("scene9.png");
+		con.drawImage(imgscene9,0,0);
+		con.println("Monkey went into clear area, taken down by bird");
+		con.println("The end");
+		con.repaint();
+	}
+	public static void scene10(Console con){
+		
+		BufferedImage imgscene10 = con.loadImage("scene10.png");
+		con.drawImage(imgscene10,0,0);
+		con.println("Monkey got into a cave");
+		con.println("Has a paper airplane");
+		con.println("Write a palidrome to summon monkeys");
+		con.println("The monkeys will sense for intelligent life");
+		con.repaint();
+	}
+	
 		public static void scene14(Console con){
 		con.clear();
 		BufferedImage imgscene14 = con.loadImage("scene14.png");
@@ -256,6 +311,9 @@ if (intcount == 15){
 		con.println("You won the thousand bananas!!! how fast do you eat them all in minutes?");
 		con.repaint();
 	}
+	
+
+	
 	public static void scene15(Console con){
 		con.clear();
 		BufferedImage imgscene15 = con.loadImage("scene15.png");
