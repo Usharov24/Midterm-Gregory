@@ -11,9 +11,17 @@ public class MidtermGreg{
 	int intmousex;
 	int intmousey;
 	int intmouseclick;
+	int intpalindromecheck = 0;
+	int intcorrelationcount;
 	String strrun;
+	String strpalinedrome;
+	String strsub; 
+	String strsub2;
+	int intdromecount = 0;
 	int intrandom;
 	int intuser;
+	int intstrlength;
+	int intmonkeycount;
 	char charcurrent;
 	double dbltime = 0;
 	double dblangle;
@@ -100,11 +108,10 @@ public class MidtermGreg{
 	
 	if (intcount == 7){
 		scene7(con);
-	
-	if (intcount == 8){
-		
+	}
+	while (intcount == 8){
+		if (intcounter1 == 0){
 		scene8(con);
-		while (intcount == 8){
 		intcounter1=1;
 	}
 		charcurrent = con.currentChar();
@@ -114,7 +121,6 @@ public class MidtermGreg{
 		if (charcurrent == ('d')){
 			intcount = 10;
 		}
-	}
 }
 	con.clear();
 	if (intcount == 9){
@@ -123,8 +129,43 @@ public class MidtermGreg{
 	
 	if (intcount == 10){
 		scene10(con);
+		while (intpalindromecheck == 0){
+			intcorrelationcount = 0;
+			strpalinedrome =con.readLine();
+			intstrlength = strpalinedrome.length(); 
+			intdromecount = 0;
+		while (intstrlength > 0){
+			strsub = strpalinedrome.substring(intstrlength-1, intstrlength);
+			strsub2 = strpalinedrome.substring(intdromecount,intdromecount + 1);
+			if (strsub.equals(strsub2)){
+				intcorrelationcount  = intcorrelationcount + 1;
+			}
+			if (intcorrelationcount == strpalinedrome.length()){
+				intpalindromecheck = 1;
+				intcount = 11;
+			}
+			intstrlength = intstrlength -1;
+			intdromecount = intdromecount + 1;	
+		}
 	}
-
+	}
+	if (intcount == 11){
+		scene11(con);
+		intmonkeycount = con.readInt();
+		if (intmonkeycount < 4){
+			intcount = 12;
+		}
+		else {
+			intcount = 13;
+		}
+		
+}
+if (intcount == 12){
+	scene12(con);
+}
+if (intcount == 13){
+	scene13(con);
+}
 	if (intcount == 14){
 		scene14(con);
 		dbltime = con.readDouble();
@@ -294,7 +335,7 @@ public static void scene8(Console con){
 		con.repaint();
 	}
 	public static void scene10(Console con){
-		
+		con.clear();
 		BufferedImage imgscene10 = con.loadImage("scene10.png");
 		con.drawImage(imgscene10,0,0);
 		con.println("Monkey got into a cave");
@@ -303,7 +344,33 @@ public static void scene8(Console con){
 		con.println("The monkeys will sense for intelligent life");
 		con.repaint();
 	}
-	
+	public static void scene11(Console con){
+		con.clear();
+		BufferedImage imgscene11 = con.loadImage("scene11.png");
+		con.drawImage(imgscene11,0,0);
+		con.println("Monkeys got your message");
+		con.println("How many monkeys do you want to come?");
+
+		con.repaint();
+	}
+	public static void scene12(Console con){
+		con.clear();
+		BufferedImage imgscene12 = con.loadImage("scene12.png");
+		con.drawImage(imgscene12,0,0);
+		con.println("You summoned way to little monkeys to fight");
+		con.println("Monkeys lost, bird won, game over");
+
+		con.repaint();
+	}
+	public static void scene13(Console con){
+		con.clear();
+		BufferedImage imgscene13 = con.loadImage("scene13.png");
+		con.drawImage(imgscene13,0,0);
+		con.println("You summoned enough monkeys to fight");
+		con.println("Monkeys defeated the bird, The End");
+
+		con.repaint();
+	}
 		public static void scene14(Console con){
 		con.clear();
 		BufferedImage imgscene14 = con.loadImage("scene14.png");
