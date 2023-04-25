@@ -59,8 +59,13 @@ public class MidtermGreg{
 			intmousey = con.currentMouseY();
 			intmouseclick = con.currentMouseButton();
 			//mouse values are assigned
+			if (intcounter1 == 0){
 			scene1(con);
+			//counter system used to make sure text isnt reprinted
+			intcounter1 = 1;
 			//prints the image in scene1
+		}
+			
 			if (intmousex > 910 && intmousey < 150 && intmouseclick == 1){
 				intcount = 2;
 			}
@@ -70,6 +75,7 @@ public class MidtermGreg{
 			} 
 			//if the mouse is hovering over the vine to swing, the scene is switched to scene3
 		}
+		intcounter1=0;
 		//Scene 2
 		if (intcount == 2){
 			scene2(con);
@@ -263,8 +269,6 @@ public class MidtermGreg{
 		//renders images
 		con.drawImage(imgscene,0,0);con.repaint();
 		//no con.clear statement because no prior text
-		con.setTextColor(Color.RED);
-		//sets the text color to red to make it easier to see in some scenes
 		con.println("Monkey is the name of the main character");
 		con.println("Monkey spots a banana in the distance and wants it!");
 		con.println("Does he walk or swing to the banana, click your choice");
@@ -310,6 +314,8 @@ public class MidtermGreg{
 	public static void scene4(Console con){
 		con.clear();
 		//clears all past text
+		con.setTextColor(Color.BLACK);
+		//sets the text color to red to make it easier to see in some scenes
 		BufferedImage imgscene = con.loadImage("scene4.png");
 		//renders all the images and draws the scene
 		con.drawImage(imgscene,0,0);
@@ -410,7 +416,7 @@ public class MidtermGreg{
 		con.clear();
 		//clears all the text previously printed
 		int intbanana;
-		//used as an x coordinate for the banana image
+		//used as an x-coordinate for the banana image
 		BufferedImage imgbanana = con.loadImage("banana2.png");
 		BufferedImage imgscene = con.loadImage("scene8.png");
 		//renders the image scene and prints it
@@ -442,7 +448,7 @@ public class MidtermGreg{
 		BufferedImage imgscene = con.loadImage("scene9.png");
 		//renders the image scene and prints it
 		con.drawImage(imgscene,0,0);
-		con.println("Monkey enters a clear area, and taken down by the bird");
+		con.println("Monkey enters a clear area, and is taken down by the bird");
 		con.println("The end");
 		con.repaint();
 	}
@@ -453,6 +459,8 @@ public class MidtermGreg{
 		BufferedImage imgscene = con.loadImage("scene10.png");
 		//renders the image scene and prints it
 		con.drawImage(imgscene,0,0);
+		con.setTextColor(Color.WHITE);
+		//sets the textcolor to white
 		con.println("Monkey got into a cave");
 		con.println("He has a paper airplane");
 		con.println("Write a palidrome to summon monkeys to your area");
