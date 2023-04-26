@@ -6,7 +6,7 @@ import java.awt.Font;
 public class MidtermGreg{ 
 	
 	public static void main(String []args){
-		Console con = new Console("Monkey Game 1.0",1280,720);
+		Console con = new Console("Monkey Game 1.02",1280,720);
 		//sets the console window size and name
 		int intcount = 0;	
 		//the main control of the story
@@ -59,23 +59,31 @@ public class MidtermGreg{
 			intmousey = con.currentMouseY();
 			intmouseclick = con.currentMouseButton();
 			//mouse values are assigned
-			if (intcounter1 == 0){
-			scene1(con);
-			//counter system used to make sure text isnt reprinted
-			intcounter1 = 1;
-			//prints the image in scene1
-		}
 			
-			if (intmousex > 910 && intmousey < 150 && intmouseclick == 1){
-				intcount = 2;
+			if (intmousex > 910 && intmousey < 150 && intmouseclick == 0){
+				con.drawRect( 910,1 ,360,150);
+				//draws a rectangle bordering the image if the mouse is on top of the image
 			}
 			//if the mouse is hovering over the feet to walk, the scene is switched to scene2
+			else if (intmousex < 150 && intmousey < 390 && intmouseclick == 0){
+				con.drawRect(0,1 ,120, 390);
+				//draws a rectangle bordering the image if the mouse is on top of the image
+			}	
+			else {
+				scene1(con);
+				//prints the image in scene1
+			}
+			if (intmousex > 910 && intmousey < 150 && intmouseclick == 1){
+				intcount = 2;
+				//if the image is clicked, switch the scene
+			}
 			if (intmousex < 150 && intmousey < 390 && intmouseclick == 1){
 				intcount = 3;
+				//if the image is clicked, switch the scene
 			} 
-			//if the mouse is hovering over the vine to swing, the scene is switched to scene3
+		
 		}
-		intcounter1=0;
+		
 		//Scene 2
 		if (intcount == 2){
 			scene2(con);
@@ -265,10 +273,13 @@ public class MidtermGreg{
 	 }
 	 
 	public static void scene1(Console con){
+		
+		//clears all past text
 		BufferedImage imgscene = con.loadImage("scene1.png");
 		//renders images
 		con.drawImage(imgscene,0,0);con.repaint();
 		//no con.clear statement because no prior text
+		con.clear();
 		con.println("Monkey is the name of the main character");
 		con.println("Monkey spots a banana in the distance and wants it!");
 		con.println("Does he walk or swing to the banana, click your choice");
@@ -314,7 +325,8 @@ public class MidtermGreg{
 	public static void scene4(Console con){
 		con.clear();
 		//clears all past text
-		con.setTextColor(Color.BLACK);
+		con.setTextColor(new Color(21,60,43));
+		
 		//sets the text color to red to make it easier to see in some scenes
 		BufferedImage imgscene = con.loadImage("scene4.png");
 		//renders all the images and draws the scene
